@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="egovframework.example.dca.service.MemberMapper">
+	<!-- id check -->
+	<select id="selectIdCheck" parameterType="String" resultType="int">
+		<![CDATA[SELECT COUNT(*) FROM member WHERE ID=#{userid}]]>
+	</select>
+	
+	<!-- insert New Member -->
+	<insert id="insertNewMember" parameterType="memberVO">
+		<![CDATA[INSERT INTO member(ID, PASSWORD, Name, CodeNumber, Email, PhoneNumber, Role, SnsId) VALUES(#{userid}, #{userpw}, #{username}, #{usercodeNumber}, #{useremail}, #{userphone}, #{role}, #{snsid})]]>
+	</insert>
+</mapper>

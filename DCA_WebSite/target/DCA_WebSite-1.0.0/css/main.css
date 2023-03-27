@@ -1,0 +1,22 @@
+@charset "UTF-8";
+#header{
+	background-color:rgba(0, 0, 0, 0.5);
+	height: 130%;
+}
+
+#header-content-box{
+	margin-top: 10px;
+}
+
+#login a{
+	color: black;
+	text-decoration: none;
+}
+
+#menu {
+	width: 20%;
+	
+}
+#btn_menu{
+	width: 10%;
+}

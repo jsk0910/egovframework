@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+#signup-body{
+	width: 36rem;
+	margin-top: 30px;
+}
+
+#signup-title{
+	font-weight: bold;
+}
+
+#signupFormInput {
+	margin-bottom: 10px;
+}

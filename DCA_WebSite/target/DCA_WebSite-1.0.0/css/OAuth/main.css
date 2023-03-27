@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+#body-login-box{
+	width: 36rem;
+}
+
+#login-box-title{
+	font-weight: bold;
+}
+
+#login-form-checkbox{
+	margin-top: 10px;
+}
+
+.under-line{
+	margin-top: 20px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #e8e8e8;
+	position: relative;
+}
+
+.under-title{
+	background-color: #fff;
+	font-size: 14px;
+	padding: 0 6px;
+	color: #ccc;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: -10px;
+}
+
+.sns-box{
+	width: 100%;
+	height: 50px;
+	border-radius: 5px;
+	position: relative;
+	border: 1px solid #ccc;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 15px;
+	font-weight: bold;
+}
+.kakao{
+	background-color: #fee500;
+	border-color: #fee500;
+}
