@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="egovframework.example.board.service.BoardMapper">
+	<!-- Select List -->
+	<select id="selectList" resultType="contentVO">
+		SELECT ID, Title, Name, Date FROM board
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+			<if test="searchType=='Title' and keyword != null and keyword != ''">
+				AND Title like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType=='Name' and keyword != null and keyword != ''">
+				AND Title like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType=='Content' and keyword != null and keyword != ''">
+				AND Title like CONCAT('%', #{keyword}, '%')
+			</if>
+		</trim>
+		ORDER BY ID DESC LIMIT #{startList}, #{listSize}
+	</select>
+	
+	<!-- 전체 개수 -->
+	<select id="getBoardListCount" resultType="int">
+		SELECT count(*) as listCnt FROM board 
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+			<if test="keyword != null and keyword != ''">
+				<if test="searchType=='Title'">
+					AND Title like CONCAT('%', #{keyword}, '%')
+				</if>
+				<if test="searchType=='Name'">
+					AND Name like CONCAT('%', #{keyword}, '%')
+				</if>
+				<if test="searchType=='Content'">
+					AND Content like CONCAT('%', #{keyword}, '%')
+				</if>
+			</if>
+		</trim>
+	</select>
+	
+	<!-- Select Detail -->
+	<select id="selectDetail" parameterType="egovframework.example.board.vo.contentVO" resultType="contentVO">
+		<![CDATA[SELECT * FROM board WHERE ID=#{ID}]]>
+	</select>
+	
+	<!-- Register New -->
+	<insert id="insertNew" parameterType="contentVO">
+		<![CDATA[INSERT INTO board(Title, Content, Name, Date) VALUES(#{title}, #{content}, #{name}, now())]]>
+	</insert>
+	
+	<!-- update -->
+	<update id="updateContent" parameterType="contentVO">
+		<![CDATA[UPDATE board SET Title=#{title}, Content=#{content}, Name=#{name} WHERE ID=#{ID}]]>
+	</update>
+	
+	<!-- delete -->
+	<delete id="deleteContent" parameterType="contentVO">
+		<![CDATA[DELETE FROM board WHERE ID=#{ID}]]>
+	</delete>
+</mapper>
